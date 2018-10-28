@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>新建条码/RFID对应</title>
+</head>
+<body>
+    <div style="position:relative; height:1200px;">
+        <form id="AddBarcodeRfidFm">
+            <div class="row mt10">
+                <span class="rl">条码：</span>
+                <div class="fl">
+                    <input name="Barcode" class="easyui-validatebox txtm" data-options="required:true" placeholder="条形码" oninput="AddBarcodeRfid.OnInputByBarcode()" />
+                </div>
+            </div>
+            <div class="row mt10">
+                <span class="rl">RFID：</span>
+                <div class="fl">
+                    <input name="rfid" class="easyui-validatebox txtm" data-options="required:true" placeholder="RFID" />
+                </div>
+            </div>
+            <div class="mt10 tc">
+                <a name="abtnCommit" class="easyui-linkbutton" style="width:100px;height:30px"><span style="font-size:14px">保存</span></a>
+                <a name="abtnReset" class="easyui-linkbutton"style="width:100px;height:30px"><span style="font-size:14px">重置</span></a>
+            </div>
+
+            <input type="hidden" name="Id" />
+        </form>
+    </div>
+    <script src="/asset/Mobile/www/scripts/AssetSite/Take/AddBarcodeRfid.js"></script>
+    <script>
+        $(function () {
+            AddBarcodeRfid.Init();
+        })
+    </script>
+</body>
+</html>

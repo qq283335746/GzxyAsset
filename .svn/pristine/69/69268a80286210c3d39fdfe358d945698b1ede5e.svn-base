@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>盘点资产</title>
+</head>
+<body>
+    <div class="easyui-navpanel">
+        <header>
+            <div class="fl">
+                <a name="abtnBack" class="easyui-linkbutton m-back" data-options="plain:true">返回</a>
+            </div>
+            <div class="fr"></div>
+            <span class="clr"></span>
+        </header>
+        <div class="easyui-panel bg-info" data-options="fit:true">
+            <div class="row">
+                <span class="rl">条形码：</span>
+                <span id="lbBarcode"></span>
+                <div class="fr">
+                    <a class="abtn_r"></a>
+                </div>
+            </div>
+            <div class="row">
+                <span class="rl">资产名称：</span>
+                <span id="lbAssetName"></span>
+                <div class="fr">
+                    <span class="rl">规格型号：</span>
+                    <span id="lbSpecModel" class="dark"></span>
+                </div>
+            </div>
+            <div class="tc">旧数据</div>
+            <ul id="oldAssetInfo" class="m-list dg-list b-c-odd  w1">
+                <li>
+                    <span class="rl">区域</span>
+                    <span class="dark"></span>
+                    <span class="clr"></span>
+                </li>
+                <li>
+                    <span class="rl">存放地点</span>
+                    <span class="dark"></span>
+                    <span class="clr"></span>
+                </li>
+                <li>
+                    <span class="rl">使用公司</span>
+                    <span class="dark"></span>
+                    <span class="clr"></span>
+                </li>
+                <li>
+                    <span class="rl">使用部门</span>
+                    <span class="dark"></span>
+                    <span class="clr"></span>
+                </li>
+                <li>
+                    <span class="rl">使用人</span>
+                    <span class="dark"></span>
+                    <span class="clr"></span>
+                </li>
+            </ul>
+            <div class="tc">新数据</div>
+            <ul class="m-list dg-list b-c-odd w1">
+                <li>
+                    <span class="rl">区域</span>
+                    <input id="cbtRegion" data-options="editable:false" style="width:210px;height:24px;" />
+                    <span class="clr"></span>
+                </li>
+                <li>
+                    <span class="rl">存放地点</span>
+                    <input id="txtStoreLocation" class="easyui-textbox" data-options="prompt:'请输入存放地点'" style="width:100%;">
+                    <span class="clr"></span>
+                </li>
+                <li>
+                    <span class="rl">使用公司</span>
+                    <input id="cbbUseCompany" data-options="editable:false" style="width:210px;height:24px;">
+                    <span class="clr"></span>
+                </li>
+                <li>
+                    <span class="rl">使用部门</span>
+                    <input id="cbtUseDepmt" data-options="editable:false,readonly:true" style="width:210px;height:24px;" />
+                    <span class="clr"></span>
+                </li>
+                <li>
+                    <span class="rl">使用人</span>
+                    <input id="txtUsePerson" class="easyui-textbox" data-options="prompt:'请输入使用人'" style="width:100%;">
+                    <span class="clr"></span>
+                </li>
+            </ul>
+            <ul class="b-c-even">
+                <li>
+                    <input id="txtRemark" class="easyui-textbox" data-options="prompt:'请输入盘点备注信息'" style="width:100%;">
+                </li>
+            </ul>
+            <ul class="b-c-even">
+                <li>
+                    <a class="easyui-linkbutton c6" style="width:100%;" onclick="AddPandianAsset.OnSure()"><span>确定</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <input type="hidden" name="hUseCompanyId" />
+    <input type="hidden" name="hUseDepmtId" />
+    <input type="hidden" name="hRegionId" />
+
+    <script type="text/javascript" src="/asset/Mobile/www/scripts/AssetSite/Asset/AddPandianAsset.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("[name=abtnBack]").click(function () {
+                $('#dlgAddPandianAsset').dialog('destroy');
+                return false;
+            })
+            AddPandianAsset.Init();
+        })
+    </script>
+</body>
+</html>

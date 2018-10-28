@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>进行盘点</title>
+</head>
+<body>
+    <div class="easyui-navpanel">
+        <header>
+            <div class="fl">
+                <a name="abtnBack" class="easyui-linkbutton m-back" data-options="plain:true">返回</a>
+            </div>
+            <div class="fr">
+                <a id="mbOpList" data-options="iconCls:'icon-add',menu:'#mmToolbar',menuAlign:'right',hasDownArrow:false,border:false"></a>
+                <div id="mmToolbar" class="menu-content mmc" style="min-width:44px;width:44px;">
+                    <img src="/asset/Mobile/www/images/btn-pany.jpg" width="42" height="42" class="mt10" onclick="ListPandianAsset.OnPanY()" />
+                    <img src="/asset/Mobile/www/images/btn-scan-barcode.jpg" width="42" height="42" onclick="ListPandianAsset.OnScanBarcode()" />
+                    <img src="/asset/Mobile/www/images/btn-up-save.jpg" width="42" height="42" onclick="ListPandianAsset.OnSavePandian()" />
+                </div>
+            </div>
+            <span class="clr"></span>
+        </header>
+        <ul class="m-list dg-list">
+            <li>
+                <span class="highlight">盘点表：</span><span id="lbPandianName"></span>
+            </li>
+            <li style="border:none;">
+                <div class="fl"><span class="highlight">盘点人：</span><span id="lbPandianUser" class="dark"></span></div>
+                <div class="fr"><span class="highlight">盘点单总数：</span><span id="lbTotalQty" class="dark"></span></div>
+                <span class="clr"></span>
+            </li>
+        </ul>
+        <div id="tabPandianAsset" class="mt5" data-options="tabHeight:48,fit:false,tabPosition:'top',border:false,pill:false,narrow:true,justified:true">
+            <div style="padding:10px 0;">
+                <div class="panel-header tt-inner">
+                    待盘点 <br />
+                    <span id="lbTotalNotPan" class="m-badge c8">0</span>
+                </div>
+                <div id="listNotPan">
+                    <!--<ul class="m-list dg-list b-c-odd">
+                    <li>
+                        <input type="hidden" name="AssetId" value="" />
+                        <img class="list-image" src="images/pic_empty.jpg" onclick="ListPandian.OnDown(this)" />
+                        <div class="list-header">1 - 文件盒</div>
+                        <div class="list-content">
+                            <a class="abtn_r">未盘点</a>
+                        </div>
+                        <span code="lbSureItem" style="display:none;"></span>
+                    </li>
+                    <li>
+                        <span class="rl">条形码</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">资产分类</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">规格型号</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">所属公司</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">使用公司</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">使用部门</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">区域</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">存放地点</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">使用人</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                </ul>-->
+                    <!--<ul class="m-list dg-list b-c-even">
+                    <li>
+                        <input type="hidden" name="AssetId" value="" />
+                        <img class="list-image" src="images/pic_empty.jpg" />
+                        <div class="list-header">1 - 文件盒</div>
+                        <div class="list-content">
+                            <a class="abtn_r" onclick="ListPandianAsset.OnClickRow(this)">未盘点</a>
+                        </div>
+                        <span code="lbSureItem" style="display:none;"></span>
+                    </li>
+                    <li>
+                        <span class="rl">条形码</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">资产分类</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">规格型号</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">所属公司</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">使用公司</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">使用部门</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">区域</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">存放地点</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                    <li>
+                        <span class="rl">使用人</span>
+                        <span class="dark">0210007</span>
+                        <span class="clr"></span>
+                    </li>
+                </ul>-->
+                </div>
+            </div>
+            <div style="padding:10px 0;">
+                <div class="panel-header tt-inner">
+                    已盘点 <br />
+                    <span id="lbTotalpan" class="m-badge c8">0</span>
+                </div>
+                <div id="listAlreadyPan"></div>
+            </div>
+            <div style="padding:10px 0;">
+                <div class="panel-header tt-inner">
+                    盘盈 <br />
+                    <span id="lbTotalYpan" class="m-badge c8">0</span>
+                </div>
+                <div id="listPanYing">
+                    <ul class="m-list dg-list">
+                        <!--<li>
+                            1 - <span code=\"barcode\">31529436677</span>
+                            <div class="fr">
+                                <a class="abtn_r" onclick="ListPandianAsset.OnClickPanyingRow(this)">盘盈</a>
+                            </div>
+                            <span code="lbSureItem" style="display:none;"></span>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/asset/Mobile/www/scripts/AssetSite/Asset/ListPandianAsset.js"></script>
+    <script src="/asset/Mobile/www/scripts/DevicePlugin/MediaAudio.js"></script>
+    <script>
+        $(function () {
+            try {
+                $("[name=abtnBack]").click(function () {
+                    $('#mbOpList').menubutton('destroy');
+                    $('#dlgListPandianAsset').dialog('destroy');
+                    return false;
+                })
+                ListPandianAsset.Init();
+            }
+            catch (e) {
+                $.messager.alert('异常提示', e.name + ": " + e.message, 'error');
+            }
+        })
+    </script>
+</body>
+</html>
