@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>基础数据菜单</title>
+</head>
+<body>
+    <div class="easyui-navpanel">
+        <header>
+            <div class="fl">
+                <a id="abtnBack" class="easyui-linkbutton m-back" data-options="plain:true">返回</a>
+            </div>
+            <div class="fr">
+                <a id="mmbAsset" data-options="iconCls:'icon-more',plain:true,hasDownArrow:false,menu:'#mmAsset',menuAlign:'right'"></a>
+            </div>
+            <span class="clr"></span>
+        </header>
+        <div id="mmAsset" class="menu-content" style="width:230px;">
+            <div id="dlAllMenu" data-options="border:false,lines:true"></div>
+        </div>
+        <ul class="m-list">
+            <li><a>组织结构</a></li>
+            <li><a>资产分类</a></li>
+            <li><a>区域</a></li>
+        </ul>
+    </div>
+
+    <script src="/asset/Mobile/www/scripts/AssetSite/Menu.js"></script>
+    <script>
+        $(function () {
+            $("#abtnBack").click(function () {
+                $('#mmbAsset').menubutton('destroy');
+                $('#dlgViewBase').dialog('destroy');
+                return false;
+            })
+            Menu.Init();
+        })
+    </script>
+</body>
+</html>

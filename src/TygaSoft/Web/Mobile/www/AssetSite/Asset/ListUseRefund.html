@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>资产领用退库列表</title>
+</head>
+<body>
+    <div class="easyui-navpanel">
+        <header>
+            <div class="fl">
+                <a id="abtnBackMenu" class="easyui-linkbutton m-back" data-options="plain:true">返回</a>
+            </div>
+            <div class="fr">
+                <a id="mmbAsset" data-options="iconCls:'icon-more',plain:true,hasDownArrow:false,menu:'#mmAsset',menuAlign:'right'"></a>
+            </div>
+            <span class="clr"></span>
+        </header>
+        <div id="mmAsset" class="menu-content" style="width:230px;">
+            <div id="dlAllMenu" data-options="border:false,lines:true"></div>
+        </div>
+
+        <div id="toolbar" style="padding: 5px;">
+            <a id="abtnAdd" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'">新建</a>
+            <a id="abtnEdit" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-edit'">编辑</a>
+            <a id="abtnDel" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'">删除</a>
+            <a id="abtnRefund" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'">退库</a>
+            <a id="abtnPrint" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-print'">打印</a>
+        </div>
+
+        <table id="dgT" class="easyui-datagrid" title="" data-options="rownumbers:true,pagination:true,fit:true,fitColumns:false,border:false,toolbar:'#toolbar'">
+            <thead>
+                <tr>
+                    <th data-options="field:'UseRefundId',checkbox:true"></th>
+                    <th data-options="field:'AssetId',hidden:true"></th>
+                    <th data-options="field:'UseUserName',hidden:true"></th>
+                    <th data-options="field:'RefundDealUserName',hidden:true"></th>
+                    <th data-options="field:'Remark',hidden:true"></th>
+                    <th data-options="field:'PictureUrl',width:100">照片</th>
+                    <th data-options="field:'SUseTime',width:100">领用时间</th>
+                    <th data-options="field:'UsePerson',width:100">领用人</th>
+                    <th data-options="field:'SEstimateRefundTime',width:100">预计退库时间</th>
+                    <th data-options="field:'Status',width:100">状态</th>
+                    <th data-options="field:'SRealRefundTime',width:100">退库时间</th>
+                    <th data-options="field:'Barcode',width:120">资产条码</th>
+                    <th data-options="field:'CategoryName',width:150">资产类别</th>
+                    <th data-options="field:'AssetName',width:150">资产名称</th>
+                    <th data-options="field:'SpecModel',width:100">规格型号</th>
+                    <th data-options="field:'SNCode',width:100">SN号</th>
+                    <th data-options="field:'Price',width:100">金额</th>
+                </tr>
+            </thead>
+        </table>
+
+        <input type="hidden" name="hAction" />
+
+    </div>
+
+
+    <div id="dlgAddUseRefund" style="padding:10px;"></div>
+
+    <script type="text/javascript" src="/asset/Mobile/www/scripts/AssetSite/Asset/ListUseRefund.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#abtnBackMenu").click(function () {
+                $('#mmbAsset').menubutton('destroy');
+                $('#dlgListUseRefund').dialog('destroy');
+                $("#abtnAsset").click();
+                return false;
+            })
+            Menu.Init();
+            ListUseRefund.Init();
+        })
+    </script>
+</body>
+</html>

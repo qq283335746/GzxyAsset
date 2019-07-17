@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{75FD1813-0116-4592-9C39-038C33E34143}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TygaSoft.IDAL</RootNamespace>
+    <AssemblyName>TygaSoft.IDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoCode\IAssetInStore.cs" />
+    <Compile Include="AutoCode\IAssetUseRefund.cs" />
+    <Compile Include="AutoCode\ICategory.cs" />
+    <Compile Include="AutoCode\ICompany.cs" />
+    <Compile Include="AutoCode\IMenus.cs" />
+    <Compile Include="AutoCode\IOrderRandom.cs" />
+    <Compile Include="AutoCode\IOrgDepmt.cs" />
+    <Compile Include="AutoCode\IPandian.cs" />
+    <Compile Include="AutoCode\IPandianAsset.cs" />
+    <Compile Include="AutoCode\IRegion.cs" />
+    <Compile Include="AutoCode\IRoleMenu.cs" />
+    <Compile Include="AutoCode\IUseRefund.cs" />
+    <Compile Include="AutoCode\IUserMenu.cs" />
+    <Compile Include="IApplication.cs" />
+    <Compile Include="IAssetInStore.cs" />
+    <Compile Include="IAssetUseRefund.cs" />
+    <Compile Include="ICategory.cs" />
+    <Compile Include="ICompany.cs" />
+    <Compile Include="IMenus.cs" />
+    <Compile Include="IOrgDepmt.cs" />
+    <Compile Include="IPandian.cs" />
+    <Compile Include="IPandianAsset.cs" />
+    <Compile Include="IRegion.cs" />
+    <Compile Include="IRole.cs" />
+    <Compile Include="IRoleMenu.cs" />
+    <Compile Include="IUseRefund.cs" />
+    <Compile Include="IUserMenu.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{b5233536-3bad-4589-8d82-a7746577f445}</Project>
+      <Name>Model %28Model\Model%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
